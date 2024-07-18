@@ -1,0 +1,7 @@
+{
+    "doadores": [
+      { "id": 1, "nome": "João da Silva", "documento": "123.456.789-00", "valor": 100.00, "tipo_doador": "PF", "como_conheceu": "Internet" },
+      { "id": 2, "nome": "Empresa XYZ", "documento": "12.345.678/0001-90", "valor": 500.00, "tipo_doador": "PJ", "como_conheceu": "Evento local" }
+    ]
+  }
+  
