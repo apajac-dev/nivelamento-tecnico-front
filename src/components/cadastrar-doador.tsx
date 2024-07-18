@@ -2,6 +2,7 @@
 
 import React from "react";
 import axios from "axios";
+import Image from "next/image";
 
 export default function CadastrarDoador() {
     const [select, setSelect] = React.useState('PF');
@@ -19,7 +20,7 @@ export default function CadastrarDoador() {
         };
     
         try {
-            const response = await axios.post('https://acolhimento-apajac-env-leo.squareweb.app/doador', data);
+            const response = await axios.post('https://acolhimento-apajac-env-leandro.squareweb.app/doador', data);
             console.log('Dados enviados:', response.data);
 
         } catch (error) {
@@ -30,14 +31,20 @@ export default function CadastrarDoador() {
     }
     
     return(
-        <main className="min-h-screen flex flex-col justify-center bg-blue-300">
+        <main className="min-h-screen flex flex-col bg-blue-300">
             
-            <div className="text-center mt-20 mb-10">
+            <div className="flex justify-center text-center mt-20 mb-10">
+                <Image 
+                 src="/imageperson.png"
+                 alt="Icone de pessoa"
+                 width={24} 
+                 height={24}
+                />
                 <h1 className="font-bold">Cadastrar Doador </h1>
             </div>
 
 
-            <div className="flex flex-auto justify-center">    
+            <div className="flex justify-center">    
                 <form onSubmit={handleSubmit}>
 
                     <div className="mb-5">
