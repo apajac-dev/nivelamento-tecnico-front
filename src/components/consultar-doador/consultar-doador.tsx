@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 export default function ConsultarDoadores() {
 
-    interface Doador {
+    type Doador = {
         id: number;
         nome: string;
         documento: string;
@@ -21,10 +21,9 @@ export default function ConsultarDoadores() {
 
         const carregarDoadores = async () => {
             try {
-                const response = await axios.get('https://acolhimento-apajac-env-leandro.squareweb.app/swagger-ui/index.html#/');
-                console.log('Dados dos doadores:', response.data);
+                const response = await axios.get('https://acolhimento-apajac-env-leandro.squareweb.app/doador/listar');
 
-                setDoadores(response.data);
+                setDoadores(response.data.content);
             } catch (error) {
                 console.error('Erro ao carregar doadores:', error);
             }
