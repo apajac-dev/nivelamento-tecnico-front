@@ -1,6 +1,7 @@
 /* src/app/cadastro_doador/type.module.css */
 
 /* .global é referente ao estilo de toda a pagina */
+
 .global {
     background-color: #B7D2EE; /* Cor de fundo azul */
     margin: 0;
@@ -37,31 +38,22 @@
   
   /* Estilos individuais para cada campo */
 
-  .selectField {
-    margin-bottom: 10px;
-    margin-top: 80px;
-  }
-  
-  .selectField label {
-    text-align: left;
-    width: 120px; /* Define uma largura fixa para os labels */
-    line-height: 1; /* Ajusta a altura da linha */
-    font-size: 16px; /* Ajusta o tamanho da fonte */
-    margin-right: 245px; /* Ajusta a margem direita */
-    height: 30px;
-  }
-  
-  .selectField select {
-    flex: 1; /* Faz com que os selects se expandam para preencher o espaço disponível */
-    padding: 8px;
-    border: 1px solid #ccc; /* Adicione um estilo de borda opcional para os selects */
-    border-radius: 10px;
-    box-sizing: border-box; /* Garante que o padding não aumente o tamanho total do select */
-    height: 30px; /* Ajusta a altura */
-    font-size: 12px; /* Ajusta o tamanho da fonte */
-    width: 200px;
-    left: 120px;
-  }
+ /* Exemplos de ajuste no CSS para melhorar a consistência */
+.selectField label, .nomeField label, .cpfField label, .valorField label, .conheceuField label {
+  width: 150px; /* Define uma largura fixa para os labels */
+  font-size: 16px; /* Ajusta o tamanho da fonte */
+  margin-right: 10px; /* Espaçamento entre o label e o input */
+  text-align: left; /* Alinha o texto à esquerda */
+}
+
+.selectField select, .nomeField input, .cpfField input, .valorField input, .conheceuField input {
+  width: 250px; /* Define uma largura padrão para os inputs e selects */
+  padding: 8px; /* Espaçamento interno */
+  border-radius: 10px; /* Borda arredondada */
+  border: 1px solid #ccc; /* Borda cinza */
+  font-size: 14px; /* Ajusta o tamanho da fonte */
+}
+
 
   .nomeField {
   margin-bottom: 10px;
