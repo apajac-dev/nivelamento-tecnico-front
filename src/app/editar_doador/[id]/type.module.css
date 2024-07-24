@@ -1,0 +1,113 @@
+.global {
+    background-color: #B7D2EE;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.someClass {
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px;
+}
+
+.titulo {
+    margin-bottom: 100px;
+    margin-top: 200px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.fieldWrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* Espaçamento entre os campos */
+}
+
+.labelTipo, .labelNome, .labelDocumento, .labelValor, .labelConheceu {
+    width: 100px; /* Largura fixa para os labels */
+    font-size: 16px;
+    text-align: left; /* Alinha o texto do label à esquerda */
+    font-weight: bold; /* Define o texto do label como negrito */
+    margin-right: 10px; /* Espaçamento à direita do label */
+}
+
+.inputTipo, 
+.inputNome, 
+.inputDocumento, 
+.inputValor, 
+.inputConheceu {
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    text-align: left; /* Alinha o texto do input à esquerda */
+}
+
+/* Estilos individuais para cada input */
+.inputTipo {
+    width: 200px;
+}
+
+.inputNome {
+    width: 250px;
+}
+
+.inputDocumento {
+    width: 200px;
+}
+
+.inputValor {
+    width: 200px;
+}
+
+.inputConheceu {
+    width: 250px;
+}
+
+.header {
+    display: flex;
+    flex-direction: column; /* Alinha o título e os botões em coluna */
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    gap: 20px; /* Espaçamento entre o título e os botões */
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column; /* Alinha os botões em coluna */
+    align-items: center; /* Centraliza os botões horizontalmente */
+    gap: 10px; /* Espaçamento entre os botões */
+}
+
+.buttonSubmit, 
+.buttonDelete {
+    padding: 17px 23px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 240px; /* Largura dos botões */
+    height: 56px; /* Altura dos botões */
+    font-size: 15px; /* Tamanho da fonte */
+    display: flex; /* Usa Flexbox para centralizar o texto */
+    justify-content: center; /* Alinha o texto horizontalmente */
+    align-items: center; /* Alinha o texto verticalmente */
+    text-align: center; /* Centraliza o texto dentro do botão */
+}
+
+.buttonSubmit {
+    background-color: #5992CD; /* Cor de fundo do botão Editar/Salvar */
+    color: #ffffff; /* Cor do texto */
+}
+
+.buttonDelete {
+    width: 152px; /* Largura do botão Excluir */
+    height: 50px; /* Altura do botão Excluir */
+    background-color: #FF6B6B; /* Cor de fundo do botão Excluir */
+    color: #ffffff; /* Cor do texto */
+}

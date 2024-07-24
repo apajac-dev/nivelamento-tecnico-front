@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import styles from './type.module.css';
+import React, { useState, useEffect } from 'react'; // Importa React, useState e useEffect
+import Link from 'next/link'; // Importa o Link para navegação
+import styles from './type.module.css'; // Importa o arquivo CSS de módulo
 
 interface Doador {
   id: number;
@@ -13,7 +14,7 @@ interface Doador {
   idResponsavelPeloCadastro: number | null;
 }
 
-const Page: React.FC = () => {
+const CadastroDoador = () => {
   const [doadores, setDoadores] = useState<Doador[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -24,12 +25,12 @@ const Page: React.FC = () => {
 
   const fetchDoadores = async () => {
     try {
-      const response = await fetch('https://acolhimento-apajac-env-jonathan.squareweb.app/doador/listar');
+      const response = await fetch('https://acolhimento-apajac-env-jonathan.squareweb.app/doadores');
       if (response.ok) {
         const data = await response.json();
-        console.log('Dados da API:', data); // Adicione este log para inspecionar a resposta da API
-        if (Array.isArray(data.content)) {
-          setDoadores(data.content);
+        console.log('Dados da API:', data); // Log para inspecionar a resposta da API
+        if (Array.isArray(data)) {
+          setDoadores(data);
         } else {
           setError('Erro: A resposta da API não contém um array de doadores.');
         }
@@ -61,7 +62,11 @@ const Page: React.FC = () => {
                 <tbody>
                   {doadores.map((doador) => (
                     <tr key={doador.id}>
-                      <td className={styles.rounded}>{doador.nome}</td>
+                      <td className={styles.rounded}>
+                        <Link href={`/editar_doador/${doador.id}`}>
+                          {doador.nome}
+                        </Link>
+                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -74,4 +79,4 @@ const Page: React.FC = () => {
   );
 };
 
-export default Page;
+export default CadastroDoador; // Exportando o componente com o novo nome
