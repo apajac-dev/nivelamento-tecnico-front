@@ -1,197 +1,101 @@
 /* src/app/cadastro_doador/type.module.css */
 
 /* .global é referente ao estilo de toda a pagina */
-
 .global {
-    background-color: #B7D2EE; /* Cor de fundo azul */
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif; /* Fonte global */
-  }
-  
-  .someClass {
-    padding: 20px;
-    text-align: center;
-    border-radius: 12px; /* Adicione ou mantenha o border-radius conforme necessário */
-   
-  }
-  
-  .someClass h1 {
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    font-size: 30px;
-   
-  }
-  
-  .titulo {
-    margin-bottom: 40px;
-    margin-top: 20px;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    font-size: 30px;
-  }
-  
-  /* Estilos individuais para cada campo */
+  background-color: #B7D2EE; /* Cor de fundo azul */
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif; /* Fonte global */
+}
 
- /* Exemplos de ajuste no CSS para melhorar a consistência */
+.someClass {
+  padding: 20px;
+  text-align: center;
+  border-radius: 12px; /* Adicione ou mantenha o border-radius conforme necessário */
+}
+
+.someClass h1 {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.titulo {
+  margin-bottom: 40px;
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+/* Estilos individuais para cada campo */
+
+/* Estilo para labels dentro de .selectField, .nomeField, .cpfField, .valorField, .conheceuField */
 .selectField label, .nomeField label, .cpfField label, .valorField label, .conheceuField label {
+  display: inline-block;
   width: 150px; /* Define uma largura fixa para os labels */
   font-size: 16px; /* Ajusta o tamanho da fonte */
   margin-right: 10px; /* Espaçamento entre o label e o input */
-  text-align: left; /* Alinha o texto à esquerda */
+  text-align:justify; /* Alinha o texto à esquerda */
 }
 
+/* Estilo para inputs e selects dentro de .selectField, .nomeField, .cpfField, .valorField, .conheceuField */
 .selectField select, .nomeField input, .cpfField input, .valorField input, .conheceuField input {
   width: 250px; /* Define uma largura padrão para os inputs e selects */
   padding: 8px; /* Espaçamento interno */
   border-radius: 10px; /* Borda arredondada */
   border: 1px solid #ccc; /* Borda cinza */
   font-size: 14px; /* Ajusta o tamanho da fonte */
+  box-sizing: border-box; /* Garante que o padding não aumente o tamanho total do input */
 }
 
-
-  .nomeField {
-  margin-bottom: 10px;
-}
-
-.nomeField label {
-  margin-right: 130px;
-  text-align: left;
-  width: 120px; /* Define uma largura fixa para os labels */
-  height: 30px;
-  top: 46px;
-  line-height: 1; /* Ajusta a altura da linha */
-  font-size: 16px; /* Ajusta o tamanho da fonte */
+/* Estilos específicos para campos individuais */
+.nomeField, .cpfField, .valorField, .conheceuField {
+  margin-bottom: 16px;
 }
 
 .nomeField input {
-  flex: 1; /* Faz com que os inputs se expandam para preencher o espaço disponível */
-  padding: 8px;
-  border: 1px solid #ccc; /* Adicione um estilo de borda opcional para os inputs */
-  box-sizing: border-box; /* Garante que o padding não aumente o tamanho total do input */
-  text-align: left;
-  height: 30px; /* Ajusta a altura */
-  font-size: 12px; /* Ajusta o tamanho da fonte */
   width: 300px; /* Largura específica para o campo nome */
-  height: 30px;
-  top: 46px;
-  left: 120px;
-  border-radius: 10px;
-}
-
-.cpfField {
-  margin-bottom: 10px;
-}
-
-.cpfField label {
-  margin-right: 140px;
-  text-align: left;
-  width: 120px; /* Define uma largura fixa para os labels */
-  height: 30px;
-  top: 90px;
-  line-height: 1; /* Ajusta a altura da linha */
-  font-size: 16px; /* Ajusta o tamanho da fonte */
 }
 
 .cpfField input {
-  flex: 1; /* Faz com que os inputs se expandam para preencher o espaço disponível */
-  padding: 8px;
-  border: 1px solid #ccc; /* Adicione um estilo de borda opcional para os inputs */
-  border-radius: 10px;
-  box-sizing: border-box; /* Garante que o padding não aumente o tamanho total do input */
-  text-align: left;
-  height: 30px; /* Ajusta a altura */
-  font-size: 12px; /* Ajusta o tamanho da fonte */
   width: 200px; /* Largura específica para o campo documento */
-  top: 92px;
-  left: 120px;
-  margin-left: 0px;
-}
-
-.valorField {
-  margin-bottom: 10px;
-}
-
-.valorField label {
-  margin-right: 185px;
-  text-align: left;
-  width: 120px; /* Define uma largura fixa para os labels */
-  line-height: 1; /* Ajusta a altura da linha */
-  font-size: 16px; /* Ajusta o tamanho da fonte */
-  height: 30px;
-  top: 138px;
 }
 
 .valorField input {
-  flex: 1; /* Faz com que os inputs se expandam para preencher o espaço disponível */
-  padding: 8px;
-  border: 1px solid #ccc; /* Adicione um estilo de borda opcional para os inputs */
-  border-radius: 10px;
-  box-sizing: border-box; /* Garante que o padding não aumente o tamanho total do input */
-  text-align: left;
-  height: 30px; /* Ajusta a altura */
-  font-size: 12px; /* Ajusta o tamanho da fonte */
   width: 200px; /* Largura específica para o campo valor doado */
-  top: 138px;
-  left: 120px;
-
-}
-
-.conheceuField {
-  margin-bottom: 10px;
-}
-
-.conheceuField label {
-  margin-right: 15px;
-  text-align: left;
-  width: 120px; /* Define uma largura fixa para os labels */
-  height: 57px;
-  top: 184px;
-  line-height: 1; /* Ajusta a altura da linha */
-  font-size: 16px; /* Ajusta o tamanho da fonte */
 }
 
 .conheceuField input {
-  flex: 1; /* Faz com que os inputs se expandam para preencher o espaço disponível */
-  padding: 8px;
-  border: 1px solid #ccc; /* Adicione um estilo de borda opcional para os inputs */
-  border-radius: 10px;
-  box-sizing: border-box; /* Garante que o padding não aumente o tamanho total do input */
-  text-align: left;
-  height: 30px; /* Ajusta a altura */
-  font-size: 12px; /* Ajusta o tamanho da fonte */
   width: 250px; /* Largura específica para o campo como conheceu */
-  top: 197px;
-  left: 120px;
-
 }
 
 /* Quebrar linha do label */
 .conheceuField label {
   white-space: pre-wrap; /* Permite quebra de linha */
 }
-  
-  .button-submit {
-    padding: 17px, 23px, 17px, 23px;
-    background-color: #5992CD;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    justify-content: center;
-    width: 240px;
-    height: 56px;
-    margin-top: 80px;
-    font-size: 15px;
-  }
-  
-  .header .icon {
-    width: 24px; /* Ajuste o tamanho conforme necessário */
-    height: 24px; /* Ajuste o tamanho conforme necessário */
-    margin-right: 10px; /* Espaçamento entre a imagem e o texto */
-  }
+
+.button_submit {
+  padding: 17px 23px; /* Espaçamento interno */
+  background-color: #5992CD;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  justify-content: center;
+  width: 240px;
+  height: 56px;
+  margin-top: 80px;
+  font-size: 15px;
+}
+
+.header .icon {
+  width: 24px; /* Ajuste o tamanho conforme necessário */
+  height: 24px; /* Ajuste o tamanho conforme necessário */
+  margin-right: 10px; /* Espaçamento entre a imagem e o texto */
+}
