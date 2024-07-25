@@ -1,4 +1,4 @@
-import CadastrarDoador from '@/components/cadastrar-doador';
+import CadastrarDoador from '@/components/cadastrar-doador/cadastrar-doador';
 
 
 export default function Cadastro() {
