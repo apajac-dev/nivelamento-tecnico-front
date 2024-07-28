@@ -1,4 +1,4 @@
-import CadastrarDoador from "@/components/cadastrar-doador/cadastrar-doador";
+import FormDoador from "@/components/cadastrar-doador/form-doador";
 
 type Params = {
     id: string;
@@ -10,11 +10,12 @@ type Props = {
 
 
 
-export default function Editar({params}: Props) {
+export default function Editar({ params }: Props) {
 
+    console.log("parms:" + params.id);
     return(
         <main>
-            <CadastrarDoador id={params.id} />
+            <FormDoador id={params.id} />
         </main>            
     );  
 }

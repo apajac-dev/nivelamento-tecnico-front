@@ -5,7 +5,7 @@ import axios from "axios";
 import Image from "next/image";
 
 type Props = {
-    id?: string | undefined;
+    id?: string;
 
 }
 
@@ -13,23 +13,25 @@ type Doador = {
     nome: string;
     documento: string;
     valor: string;
-    tipo_doador: 'PF' | 'PJ';
-    como_conheceu: string;
+    tipoDoador: 'PF' | 'PJ';
+    comoConheceu: string;
 }
 
 export default function FormDoador({ id }: Props) {
     const [select, setSelect] = React.useState('PF');
-
+    const [foiDeletado, setFoiDeletado] = React.useState(false);
     const [doador, setDoador] = React.useState<Doador>({
+        
         nome: "",
         documento: "",
         valor: "",
-        tipo_doador: "PF",
-        como_conheceu: ""
+        tipoDoador: "PF",
+        comoConheceu: ""
     });
 
     useEffect(() => {
         if (id) {
+            
            
             const carregarDoador =  async () => {
 
@@ -41,20 +43,21 @@ export default function FormDoador({ id }: Props) {
                         nome: data.nome,
                         documento: data.documento.toString(),
                         valor: data.valor.toString(),
-                        tipo_doador: data.tipo_doador,
-                        como_conheceu: data.como_conheceu
+                        tipoDoador: data.tipoDoador,
+                        comoConheceu: data.comoConheceu,
 
                     });
 
-                    setSelect(data.tipo_doador);
+                    setSelect(data.tipoDoador);
                 } catch (error) {
                     console.error('Erro ao carregar doador:', error);
                 }
             };
 
             carregarDoador();
+            
         }
-    }, [id]);
+    }, []);
     
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -65,18 +68,26 @@ export default function FormDoador({ id }: Props) {
             nome: formData.get('nome') as string,
             documento: Number(formData.get('documento')),
             valor: Number(formData.get('valor')),
-            tipo_doador: select,
-            como_conheceu: formData.get('como_conheceu') as string,
+            tipoDoador: select,
+            comoConheceu: formData.get('comoConheceu') as string,
         };
     
         try {
             if (id) {
-                await axios.put('https://acolhimento-apajac-env-leandro.squareweb.app/doador/${id}', data);
+                await axios.put(`https://acolhimento-apajac-env-leandro.squareweb.app/doador/${id}`, data);
                 console.log('Doador atualizado com sucesso!');
             } else {
                 await axios.post('https://acolhimento-apajac-env-leandro.squareweb.app/doador', data);
                 console.log('Doador cadastrado com sucesso!');
-            }
+            } 
+
+            setDoador({
+                nome: "",
+                documento: "",
+                valor: "",
+                tipoDoador: "PF",
+                comoConheceu: ""
+            });
 
         } catch (error) {
             console.error('Erro ao enviar os dados:', error);
@@ -90,8 +101,18 @@ export default function FormDoador({ id }: Props) {
 
         if(window.confirm('Tem certeza que deseja excluir este doador?')) {
             try {
-                await axios.delete('https://acolhimento-apajac-env-leandro.squareweb.app/doador/${id}');
+                await axios.delete(`https://acolhimento-apajac-env-leandro.squareweb.app/doador/${id}`);
                 console.log('Doador excluído com sucesso!');
+
+                setDoador({
+                    nome: "",
+                    documento: "",
+                    valor: "",
+                    tipoDoador: "PF",
+                    comoConheceu: ""
+                });
+                setSelect("PF")
+                
 
         } catch (error) {
             console.error('Erro ao excluir o doador!', error);
@@ -124,8 +145,11 @@ export default function FormDoador({ id }: Props) {
                         <select
                          className="rounded-lg bg-gray-300 px-4 w-48" 
                          value={select}
-                         onChange={({ target }) => setSelect(target.value)}
-                         id="tipo_doador"
+                         onChange={({ target }) => {
+                            setSelect(target.value);
+                            setDoador({ ...doador, tipoDoador: target.value as 'PF' | 'PJ' });
+                         }}
+                         id="tipoDoador"
                         >
                             <option value="PF">Pessoa física</option>
                             <option value="PJ">Pessoa jurídica</option>
@@ -173,13 +197,13 @@ export default function FormDoador({ id }: Props) {
                     </div>
 
                     <div>
-                        <label className="font-bold inline-block w-24 mx-6" htmlFor="como_conheceu">Como conheceu a Apajac?</label>
+                        <label className="font-bold inline-block w-24 mx-6" htmlFor="comoConheceu">Como conheceu a Apajac?</label>
                         <input className="rounded-lg bg-gray-300 px-4 w-72" 
                          type="text"
-                         id="como_conheceu"
-                         name="como_conheceu"
-                         value={doador.como_conheceu}
-                         onChange={(e) => setDoador({ ...doador, como_conheceu: e.target.value })}
+                         id="comoConheceu"
+                         name="comoConheceu"
+                         value={doador.comoConheceu}
+                         onChange={(e) => setDoador({ ...doador, comoConheceu: e.target.value })}
                          required
                         />
                     </div>
